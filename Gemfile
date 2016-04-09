@@ -20,4 +20,5 @@ group :test do
   gem 'shoulda-matchers',   require: false  # ActiveRecord-specific matchers
   gem 'simplecov',          require: false  # code coverage
   gem 'vcr',                require: false  # record and playback http interactions
+  gem 'webmock',            require: false
 end
