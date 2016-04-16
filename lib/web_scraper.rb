@@ -1,3 +1,0 @@
-require 'mechanize'
-
-WebScraper = Mechanize
