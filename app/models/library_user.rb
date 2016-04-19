@@ -1,13 +1,14 @@
-class LibraryUser
-  attr_reader :first_name, :last_name, :library_card_number, :email, :phone_number, :address_1, :zip_code
-
-  def initialize(first_name:, last_name:, library_card_number:, email:, phone_number:, address_1:, zip_code:)
-    @first_name          = first_name
-    @last_name           = last_name
-    @library_card_number = library_card_number
-    @email               = email
-    @phone_number        = phone_number
-    @address_1           = address_1
-    @zip_code            = zip_code
-  end
+class LibraryUser < ActiveRecord::Base
+  validates :first_name, presence: true
+  validates :last_name,  presence: true
+  validates :address_1,  presence: true
+  validates :zip_code,   presence: true
+  validates :library_card_number, presence: true,
+                                  length: { is: 12 },
+                                  numericality: true,
+                                  uniqueness: true
+  validates :email, presence: true,
+                    uniqueness: true
+  validates :phone_number, presence: true,
+                           uniqueness: true
 end
