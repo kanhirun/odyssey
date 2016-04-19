@@ -1,3 +1,7 @@
+# Note: Code coverage must start before application code is loaded.
+require 'simplecov'
+SimpleCov.start 'rails'
+
 PROJECT_ROOT = File.expand_path('../..', __FILE__)
 $:.unshift PROJECT_ROOT
 
