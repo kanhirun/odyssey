@@ -10,6 +10,7 @@ FactoryGirl.define do
       library_card_number '234942184560'
     end
 
+    # Custom Constructor:
     initialize_with do
       LibraryUser.new(
         first_name: first_name,

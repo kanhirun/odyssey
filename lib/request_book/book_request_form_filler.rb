@@ -1,4 +1,4 @@
-require_relative 'book_request_form_filler/book_request_form'
+require_relative 'book_request_form'
 
 class BookRequestFormFiller
   attr_reader :form
@@ -38,4 +38,3 @@ class BookRequestFormFiller
     form.check_pickup_location_as_merlo!
   end
 end
-

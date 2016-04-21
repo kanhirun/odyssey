@@ -1,4 +1,9 @@
+require_relative 'request_book/book_request_form_filler'
+require 'mechanize'
+
 class ChicagoPublicLibrary
+  class BookRequestError < StandardError; end
+
   INTERLIBRARY_URL = 'http://www.chipublib.org/request-an-interlibrary-loan'.freeze
   SUCCESS_MESSAGE  = 'Thanks for contacting us! Your interlibrary loan request has been submitted.'.freeze
 
@@ -28,7 +33,7 @@ class ChicagoPublicLibrary
     response = form.submit(submit_button)
 
     if !response.body.include? SUCCESS_MESSAGE
-      raise ValidationError.new('One or more fields must not be blank.')
+      raise BookRequestError.new 'The book request failed.'
     end
   end
 

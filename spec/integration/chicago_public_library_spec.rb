@@ -1,12 +1,9 @@
-require 'integration_helper'
+require 'rails_helper'
 
 require 'lib/chicago_public_library'
-require 'lib/book'
-require 'lib/book_request_form_filler'
+require 'lib/request_book/book'
+require 'lib/request_book/book_request_form_filler'
 require 'app/models/library_user'
-require 'mechanize'
-
-class ValidationError < StandardError; end
 
 RSpec.describe ChicagoPublicLibrary, order: :defined, type: :integration do
   describe '.interlibrary_page!' do
@@ -40,12 +37,17 @@ RSpec.describe ChicagoPublicLibrary, order: :defined, type: :integration do
       end
     end
 
-    it "raises an error when the book request fails" do
-      book_with_blank_title = Factory.build(:book, title: '')
+    context 'when the book request fails', order: :random do
+      it 'raises an error' do
+        book_with_blank_title = Factory.build(:book, title: '')
 
-      expect do
-        ChicagoPublicLibrary.book_request!(book: book_with_blank_title, user: user)
-      end.to raise_error(ValidationError, 'One or more fields must not be blank.')
+        expect do
+          ChicagoPublicLibrary.book_request!(book: book_with_blank_title, user: user)
+        end.to raise_error(ChicagoPublicLibrary::BookRequestError, /The book request failed\./)
+      end
+
+      xit 'saves the HTML response in a tempfile for debugging' do
+      end
     end
   end
 end

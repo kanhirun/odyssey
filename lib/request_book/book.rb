@@ -1,9 +1,9 @@
-require_relative 'book/comparable_by_value'
+require_relative 'comparable_by_value'
 
 class Book
   include ComparableByValue
 
-  attr_reader :title, :author, :url
+  attr_accessor :title, :author, :url
 
   def initialize(title:, author:, url: '')
     @title  = title

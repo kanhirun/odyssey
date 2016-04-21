@@ -1,4 +1,4 @@
-Factory.define do
+FactoryGirl.define do
   factory :book do
     transient do
       title 'My Title'
