@@ -2,11 +2,8 @@ PROJECT_ROOT = File.expand_path('../..', __FILE__)
 $:.unshift PROJECT_ROOT
 
 # Note: Code coverage must start before application code is loaded.
-require 'simplecov'
-SimpleCov.start 'rails' do
-  # Fail the test if coverage drops below 100%:
-  minimum_coverage 100
-end
+require 'lib/services/code_coverage'
+CodeCoverage.start!
 
 # Strip indentation in heredocs:
 # TODO: Remove this after upgrading to ruby v2.3.0p0
