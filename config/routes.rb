@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :library_users, controllers: { registrations: 'registrations' }
+  devise_for :library_users, controllers: { registrations: 'library_users/registrations' }
 
   root to: 'book_request#new'
 
