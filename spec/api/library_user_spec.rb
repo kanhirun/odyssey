@@ -16,6 +16,7 @@ RSpec.describe 'API', type: :request do
                                                    address_1: '424 W. Diversey Pkwy',
                                                    zip_code: '60614',
                                                    email: 'kel.kanhirun@gmail.com',
+                                                   password: 'password',
                                                    library_card_number: '234942184560' }
       end.to change{ LibraryUser.count }.by 1
 
