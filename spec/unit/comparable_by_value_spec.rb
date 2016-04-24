@@ -1,4 +1,4 @@
-require 'lib/book/comparable_by_value'
+require 'lib/request_book/comparable_by_value'
 
 RSpec.describe 'ComparableByValue mixin' do
   let(:klass) do

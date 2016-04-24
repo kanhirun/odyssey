@@ -1,4 +1,4 @@
-require 'lib/book'
+require 'lib/request_book/book'
 
 RSpec.describe Book, type: :unit do
   it 'behaves like a Value object' do
