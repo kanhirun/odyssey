@@ -2,8 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
-gem 'devise'     # user authentication
-gem 'mechanize'  # webscraper
+gem 'devise'    # user authentication
+gem 'mechanize' # webscraper
+gem 'neat'      # CSS grid framework
+gem 'sass-rails'
 
 group :development, :test do
   gem 'pry', require: false  # interactive debugger
