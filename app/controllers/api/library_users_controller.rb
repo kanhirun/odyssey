@@ -1,9 +1,12 @@
 class Api::LibraryUsersController < ApplicationController
   def create
-    # Make this safe!
-    LibraryUser.create!(library_user_params)
+    library_user = LibraryUser.create(library_user_params)
 
-    render json: {}
+    if library_user.save
+      render json: {}, status: :created
+    else
+      render json: {}, status: :bad_request
+    end
   end
 
   def book_request
