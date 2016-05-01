@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.2'
 
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
@@ -6,6 +7,9 @@ gem 'devise'    # user authentication
 gem 'mechanize' # webscraper
 gem 'neat'      # CSS grid framework
 gem 'sass-rails'
+
+gem 'rails_12factor'  # enables Heroku platform features
+gem 'puma'            # webserver
 
 group :development, :test do
   gem 'pry', require: false  # interactive debugger
