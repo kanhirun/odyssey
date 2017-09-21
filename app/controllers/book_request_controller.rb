@@ -1,3 +1,6 @@
+require_relative '../../lib/chicago_public_library'
+require_relative '../../lib/request_book/book'
+
 class BookRequestController < ApplicationController
   before_action :authenticate_library_user!
 
@@ -5,9 +8,6 @@ class BookRequestController < ApplicationController
   end
 
   def book_request
-    require_relative '../../lib/chicago_public_library'
-    require_relative '../../lib/request_book/book'
-
     ChicagoPublicLibrary.book_request!(
       user: current_library_user,
       book: Book.new(book_params.symbolize_keys)
